@@ -1,11 +1,14 @@
 class Solution:
     def isValid(self, s: str) -> bool:
-        while len(s) > 0:
-            l = len(s)
-            s = s.replace('()','').replace('{}','').replace('[]','')
-            if l==len(s): return False
-        return True
-
+        d = {'(':')','[':']','{':'}'}
+        stack = []
+        for i in s:
+            if i in d:
+                stack.append(i)
+            elif len(stack) == 0 or d[stack.pop()] !=i: return False
+        return len(stack) == 0
+                
+   
     
     
 
