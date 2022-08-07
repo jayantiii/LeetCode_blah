@@ -17,13 +17,7 @@ class Solution:
         return False
         
      
-    
-    
-    
-    
-    
-    
-# One way - passes all but slow
+ # One way - passes all but slow
 #    while head:
 #             if head.val == None:
 #                 return True
