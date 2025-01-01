@@ -1,14 +1,14 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
+        #tc = O(n+m) , sc = O(1)
         if len(s) != len(t):
             return False
-        scount = {}
-        tcount = {}
+        scount, tcount = {}, {} # key count <=26
         for i in range(len(s)):
             scount[s[i]] = 1 + scount.get(s[i],0) 
             tcount[t[i]] = 1 + tcount.get(t[i],0) 
         return scount == tcount
-        
+
 #anagram is not equal to palindrome (dont confuse)
 # return sorted(s) == sorted(t)   - O(nlogn+mlogm) 
 # return counter(s) == counter(t) - similar efficency as submitted soln
