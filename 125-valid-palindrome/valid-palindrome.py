@@ -18,5 +18,11 @@ class Solution:
 #bitwise not operator
     #  s = [c.lower() for c in s if c.isalnum()]
     #     return all (s[i] == s[~i] for i in range(len(s)//2))
-    
+
 #filtered = ''.join(c for c in s if c.isalnum()) - one other way
+
+#write own isalphanum function
+#   def alphaNum(self, c):
+#         return (ord('A') <= ord(c) <= ord('Z') or 
+#                 ord('a') <= ord(c) <= ord('z') or 
+#                 ord('0') <= ord(c) <= ord('9'))
