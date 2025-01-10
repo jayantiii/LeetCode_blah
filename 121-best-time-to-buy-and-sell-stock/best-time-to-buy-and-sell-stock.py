@@ -7,9 +7,18 @@ class Solution:
                 low = price
             res = max(res, price - low)
         return res
+
+#can use 2 pointer, try!
+
+# dp!?
+# min_price = float('inf')
+#         max_profit = 0
+#         for current_price in prices:
+#             min_price = min(current_price, min_price)
+#             max_profit = max(max_profit, current_price - min_price)   
+#         return max_profit
+
         
-
-
 
 #brute force - doesnt pass last some cases
         # max = 0
