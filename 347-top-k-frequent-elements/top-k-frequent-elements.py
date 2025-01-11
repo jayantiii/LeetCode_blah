@@ -16,9 +16,10 @@ class Solution:
 
     
 
+#one more solution - is to use heap - O(nlogk), O(n+k)
 
-
-# naive - O(nlogn) ,
+# naive - O(nlogn) , O(n)
+#  O(n+n+nlogn+k)=O(nlogn) (sorting dominates)
         # dic = {}
         # res = []
         # for i in range(len(nums)):
