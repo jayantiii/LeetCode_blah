@@ -19,7 +19,7 @@ class Solution:
                 res[i] = prod//nums[i]
         return res
 
-#optimal way - have one prefix and one suffix product arrays ( should try)
+#optimal way (O(n)) - have one prefix and one suffix product arrays ( should try)
 #   res = [1] * (len(nums))
 #         prefix = 1
 #         for i in range(len(nums)):
