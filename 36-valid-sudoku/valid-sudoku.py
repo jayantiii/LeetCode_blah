@@ -17,5 +17,5 @@ class Solution:
                     row[i].add(board[i][j])
                     col[j].add(board[i][j])
                     mat[(i//3,j//3)].add(board[i][j])
-        return True # dont by mistakely put in for loop( indent imp!)
+        return True # dont by mistakely put in for loop( indent is imp!)
         
