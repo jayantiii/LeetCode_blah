@@ -1,18 +1,17 @@
 class Solution:
     def isValid(self, s: str) -> bool:
+        #O(n),O(n)
         stack = []
-        #({[]})
         dic = { "}":"{", "]":"[", ")":"(" }
         for i in range(len(s)):
-            if s[i] in dic:
-                if stack != [] and stack[-1] == dic[s[i]]:
-                    stack.pop(-1)
-                    continue
+            if s[i] in dic: #took much time to think and form the if else block
+                if stack and stack[-1] == dic[s[i]]:
+                    stack.pop()
                 else:
                     return False      
             else:
                 stack.append(s[i])
-        return stack == []
+        return stack == [] #or  return True if not stack else False
 
     
 #brute force, O(n2),O(n)
