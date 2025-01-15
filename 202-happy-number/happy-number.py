@@ -22,7 +22,7 @@ class Solution:
 #     print("here")
 #     return False
             
-##neetcode ans
+##neetcode ans -- more efficient whats complexity)
 #  visit = set()  # MEMO to track visited numbers
 
 #     while n not in visit:
