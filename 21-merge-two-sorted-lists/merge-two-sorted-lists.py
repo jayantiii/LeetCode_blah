@@ -5,7 +5,7 @@
 #         self.next = next
 class Solution:
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
-        #O(m + n), O(1)
+        #O(m + n) - because this total number of nodes(iterations), O(1)
         l1 = list1
         l2 = list2
         res = ListNode() #dummy
