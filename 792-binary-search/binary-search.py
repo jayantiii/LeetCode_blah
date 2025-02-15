@@ -3,7 +3,7 @@ class Solution:
 # so basically, use l and r and find mid each iteration
         l, r = 0, len(nums) - 1 #dont forget -1 for r, and l is o not 1
         while l <=r:
-            mid = (l + r )// 2
+            mid = (l + r )// 2   ## dont forget the brackets
             if nums[mid] == target:
                 return mid
             else:
