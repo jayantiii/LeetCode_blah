@@ -17,14 +17,14 @@ class Solution:
             else:
                 tail.next = l1
                 l1 = l1.next
-            tail = tail.next
+            tail = tail.next #This step needed, so that it moves to new added node
         
         if l1:
             tail.next = l1
         if l2:
             tail.next = l2
         
-        return res.next
+        return res.next # because first node is dummy node
 
 
 
