@@ -21,3 +21,9 @@ class Solution:
                     l=l+1
         return  "".join(s)          #s.join() -wrong
 
+##smaller
+#   vowels=[i for i in s if i in "aeiouAEIOU"] 
+#- Extract all vowels from the string into a list in order
+# rebuild string
+#    result=[i if i not in "aeiouAEIOU" else vowels.pop() for i in s]
+#   return "".join(result)
