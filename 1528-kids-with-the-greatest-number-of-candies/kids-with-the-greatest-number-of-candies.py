@@ -8,10 +8,8 @@ class Solution:
                 result[i] = True
         return result
         
-
-
-
-
-
+#smaller and faster
+# max_candies = max(candies)
+# return [candy + extraCandies >= max_candies for candy in candies]
 
 # ask questions like can multiple kids can have the greatest number of candies.
