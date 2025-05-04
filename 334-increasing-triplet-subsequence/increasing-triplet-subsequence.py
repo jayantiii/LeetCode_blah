@@ -10,7 +10,7 @@ class Solution:
             elif x <=  second: # dont forget equal sign
                 second = x
             else:
-                return True
+                return True # means x is the third
         return False
      
 
@@ -22,6 +22,18 @@ class Solution:
 #             if nums[i] > nums[j]:
 #                 k = k +1
 #                 while True:
+
+#another
+    #   first, second = inf, inf
+        
+    #     for third in nums:
+            
+    #         if second < third: return True
+    #         if third <= first: first= third    
+    #         else:  second = third 
+                
+    #     return  False
+
 
 
         
