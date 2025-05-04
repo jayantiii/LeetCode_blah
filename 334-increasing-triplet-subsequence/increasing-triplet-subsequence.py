@@ -5,9 +5,9 @@ class Solution:
         second = float('inf')
 
         for x in nums:
-            if x <=first:
+            if x <=first: # dont forget x <=
                 first = x
-            elif x <=  second:
+            elif x <=  second: # dont forget equal sign
                 second = x
             else:
                 return True
