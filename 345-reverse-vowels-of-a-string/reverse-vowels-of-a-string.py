@@ -3,15 +3,15 @@ class Solution:
         #use 2 pointers
 
 
-        s = list(s)  # string are not mutable in python !!! convert to list
+        s = list(s)  # IMP - string are not mutable in python !!! convert to list
         l,r = 0 , len(s) -1 # use while for l and r
         vowel = set("aeiouAEIOU") #  wrong -- vowel = ['a','e','i','o','u'] 
         
         while l <=r:
-            if s[l] in vowel and s[r] in vowel:
+            if s[l] in vowel and s[r] in vowel: # dont confuse when writing conditions
                 temp = s[l]
                 s[l] = s[r]
-                s[r] = temp
+                s[r] = temp   # or can do s[i], s[j] = s[j], s[i]
                 l+=1
                 r-=1
             else:
