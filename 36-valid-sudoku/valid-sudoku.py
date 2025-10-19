@@ -1,5 +1,7 @@
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
+        #O(n2) (Ohh!!!), O(n+n+n)= O(n2)
+        # Big-O describes how the runtime or memory usage grows with input size n
         row  = defaultdict(set)
         col = defaultdict(set)
         mat  = defaultdict(set) # means any new key will be assigned an empty set
@@ -19,3 +21,4 @@ class Solution:
                     mat[(i//3,j//3)].add(board[i][j])
         return True # dont by mistakely put in for loop( indent is imp!)
         
+#there is also a bitmask soln with O(N2),O(N) in neetcode
