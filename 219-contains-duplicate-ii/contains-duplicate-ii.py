@@ -14,9 +14,14 @@ class Solution:
                 char_map[nums[i]] = i
         return False
 
-        
-
-
-
+#O(N), O(N)
 
 # Idea - Use a hash map to track the most recent index of each number. If you find a duplicate, check if the distance between current and previous index ≤ k.
+
+# refactored better code
+# char_map = {}
+# for i, num in enumerate(nums):
+#     if num in char_map and i - char_map[num] <= k:
+#         return True
+#     char_map[num] = i
+# return False
