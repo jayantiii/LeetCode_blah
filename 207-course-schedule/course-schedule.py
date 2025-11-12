@@ -35,8 +35,8 @@ class Solution:
         return True
               
 
-
-        
+##Note- Dont do if else return true/false statements. return true is outside of for loop, so that u just dont return it without completion and on first loop only
+             
 
 # Wrong!!!! I was doing this but it was returning on first neighbour(pre) we inspect itself 
 #also, You add to visitset but return before removing it in several paths, leaving the node “stuck” as visiting and creating false cycle detections.   
@@ -51,20 +51,7 @@ class Solution:
 #                     return False
 
 
-
-
-        
-
-    
-
-
-
-
-
-
-
-
-
+#Hint
 
 #This problem can be lil equivalent to finding if a cycle exists in a directed graph. 
 #If a cycle exists, no topological ordering exists and therefore it will be impossible to take all courses.
