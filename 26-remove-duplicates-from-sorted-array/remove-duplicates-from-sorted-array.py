@@ -14,15 +14,6 @@ class Solution:
         return write + 1 # plus 1 cause we are returning count
 
 
-
-
-
-
-
-
-
-
-
 #My first try - had problems!
 # mutating (pop) the list while iterating forward over it. That makes indices shift and you skip elements (or can hit index errors). 
 
