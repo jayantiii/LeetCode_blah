@@ -1,6 +1,6 @@
 class Solution:
     def searchInsert(self, nums: List[int], target: int) -> int:
-        #user binary search
+        #user binary search, log(n)
         l = 0
         r = len(nums)-1
         while l <= r:
