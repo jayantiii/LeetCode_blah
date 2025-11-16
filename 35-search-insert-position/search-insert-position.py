@@ -7,13 +7,11 @@ class Solution:
             mid = (l+r) //2
             if nums[mid] < target:
                 l = mid +1
-                pos = l
             elif nums[mid] > target:
                 r = mid-1
-                pos= r
             else:
                 return mid #equal
-
+        # understand the logic, we dont need extra var par, just can return l
         return l
 
 # this works but its O(n)
