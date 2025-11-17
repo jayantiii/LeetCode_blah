@@ -10,12 +10,11 @@ class Solution:
             pricestemp = prices.copy() #temp is needed so that IMPPPPP!!   
             #results for the current stop-count 
             for s, d, cost in flights:
+
+                #if s can be reached from src then only
                 if prices[s] == float('inf'):
                     continue # means the node cant be reached from our src
-
-                #if s can be reached from src then
-                #You should use OLD values to relax edges,
-                # but you should COMPARE/WRITE into the NEW layer.
+                #You should use OLD values to relax edges, # but you should COMPARE/WRITE into the NEW 
                 # use OLD prices[s], update NEW pricestemp[d]
                 if pricestemp[d] > prices[s] +cost : #pricestemp[s] and not prices[s]
                     pricestemp[d] = prices[s] +cost 
