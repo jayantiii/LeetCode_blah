@@ -20,4 +20,14 @@ class Solution:
 
         return
 
+#Time Complexity = O(h)
+# In a BST:
+# Best case (balanced): height = O(log n)
+# Worst case (skewed / chain): height = O(n)
+
+# where h = height of the tree
+# That becomes:
+# O(log n) in balanced BST
+# O(n) in worst-case skewed BST
+
         
