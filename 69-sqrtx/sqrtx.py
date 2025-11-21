@@ -11,7 +11,7 @@ class Solution:
                 r = mid-1
             elif mid*mid <x:
                 l = mid +1
-                res = mid
+                res = mid # only here update
             else:
                 return mid
         return res
