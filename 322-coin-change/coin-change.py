@@ -17,28 +17,31 @@ class Solution:
 
         return -1 if dp[amount] == float('inf') else dp[amount]
 
+    # #Top down
+    # dp = [float('inf')]*(amount+1)
+
+    # def mincoins(amount):
+    #     if amount == 0:
+    #         return 0
+    #     if amount == 1 and 1 in coins:
+    #         return 1
+
+    #     for c in coins:
+            
+        
+
+    # mincoins(amount)
+
 
 
         
 
-
+# Bottom-up: iterative DP, O(A * N) time, O(A) space.
+# Top-down: recursive + memo, same complexity, sometimes easier to think directly from the recurrence. Time: O(amount * len(coins)) Space: O(amount) (memo) + O(amount) (stack) → still O(amount)
 
 #Brute Force Idea: Try every possible combination of coins and find the one with minimum coins that sums to the target amount.
-
-# Algorithm:
-# For each coin, try using it 0, 1, 2, ... up to amount/coin_value times
-# Recursively try all combinations
-# Track the minimum number of coins that sum to the target
-
 #Greedy approach would be, pick the largest as much as you can , if not then go lower but fails in cases
 # like [1,3,4,5] amt = 5 -> it will return 5,1,1
-
-# I started trying this, but doesnt work out 
-# # try every coin repeated times, that means try amount/coins times
-#         min = float('inf')
-#         for coin in coins:
-#             if amount%coin == 0: # means can form the amount
-#                 min = min(min, amount//coin)
 
 ##DP explaination
 # Recurrence:
