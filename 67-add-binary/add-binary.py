@@ -1,6 +1,6 @@
 class Solution:
     def addBinary(self, a: str, b: str) -> str:
-        a = a[::-1]
+        a = a[::-1] #reverse
         b = b[::-1]
         carry = 0
         res = ""
@@ -8,8 +8,8 @@ class Solution:
             digita = int(a[i]) if i < len(a) else 0
             digitb = int(b[i]) if i <len(b) else 0
 
-            total = digita + digitb + carry
-            char = str(total % 2)
+            total = digita + digitb + carry # add
+            char = str(total % 2) # understand the logic
             res = char + res
             carry = total//2
 
