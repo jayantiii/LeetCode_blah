@@ -9,7 +9,7 @@ class Solution:
                 return mid
             if  nums[l] <= nums[mid]: # left sorted portion of array
                 if nums[mid] < target or target < nums[l]: #Imp 
-                    l = mid +1
+                    l = mid +1 #how u frame codn in if matters
                 else:
                     r = mid-1
             else : #right sorted portion #nums[mid] <= nums[l]
