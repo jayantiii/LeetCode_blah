@@ -9,22 +9,90 @@ class Solution:
             if currsum > target:
                 return
             
-            #include
+            #include, do i cause can repeat
             backtrack(i, subset + [candidates[i]], currsum + candidates[i] )
+
+            #not include
             backtrack(i+1, subset,currsum)
 
 
         backtrack(0, [],0)
         return res
 
+# candidates = [2,3,5], target = 8
+
+# backtrack(0, [], 0)
+
+#   backtrack(0, [2], 2)
+  
+#     backtrack(0, [2,2], 4)
+    
+#       backtrack(0, [2,2,2], 6)
+      
+#         backtrack(0, [2,2,2,2], 8)  ✓ hit target
+        
+#         backtrack(1, [2,2,2], 6)
+#           backtrack(1, [2,2,2,3], 9)
+#           backtrack(2, [2,2,2], 6)
+#             backtrack(2, [2,2,2,5], 11)
+#             backtrack(3, [2,2,2], 6)
+      
+#       backtrack(1, [2,2], 4)
+#         backtrack(1, [2,2,3], 7)
+#           backtrack(1, [2,2,3,3], 10)
+#           backtrack(2, [2,2,3], 7)
+#             backtrack(2, [2,2,3,5], 12)
+#             backtrack(3, [2,2,3], 7)
+        
+#         backtrack(2, [2,2], 4)
+#           backtrack(2, [2,2,5], 9)
+#           backtrack(3, [2,2], 4)
+    
+#     backtrack(1, [2], 2)
+#       backtrack(1, [2,3], 5)
+#         backtrack(1, [2,3,3], 8)   ✓ hit target
+        
+#         backtrack(2, [2,3], 5)
+#           backtrack(2, [2,3,5], 10)
+#           backtrack(3, [2,3], 5)
+      
+#       backtrack(2, [2], 2)
+#         backtrack(2, [2,5], 7)
+#           backtrack(2, [2,5,5], 12)
+#           backtrack(3, [2,5], 7)
+        
+#         backtrack(3, [2], 2)
+  
+#   backtrack(1, [], 0)
+#     backtrack(1, [3], 3)
+#       backtrack(1, [3,3], 6)
+#         backtrack(1, [3,3,3], 9)
+#         backtrack(2, [3,3], 6)
+#           backtrack(2, [3,3,5], 11)
+#           backtrack(3, [3,3], 6)
+      
+#       backtrack(2, [3], 3)
+#         backtrack(2, [3,5], 8)   ✓ hit target
+        
+#         backtrack(3, [3], 3)
+    
+#     backtrack(2, [], 0)
+#       backtrack(2, [5], 5)
+#         backtrack(2, [5,5], 10)
+#         backtrack(3, [5], 5)
+
+#     backtrack(3, [], 0)
+
+
+# #✔ Combination Sum (unlimited reuse allowed)
+# AND #Combinations (each number used once, strictly increasing)
+# This determines whether you use a for loop or two recursive branche
 
 
 
 
 
-
-
-
+#example of backtrack
 #                           dfs(0, [])
 #                 /                                \
 #          exclude 1                         include 1
