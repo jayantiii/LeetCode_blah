@@ -19,7 +19,7 @@ class Solution:
                     q.append((i,j)) # append indices not values
                     visit.add((i,j))
         dist = 0
-        while q:
+        while q: # bfs go layer by layer
             # pop all at once
             for x in range(len(q)):
                 i,j = q.popleft() #do popleft
