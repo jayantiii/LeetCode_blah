@@ -31,6 +31,7 @@ class Solution:
         return index
 
 
+#Dont forget self. everywhere and also pass it in binarysearch function
         
 #Idea
 # inp - [1,3] # - here the idea is to draw them on number line
