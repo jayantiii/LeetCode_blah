@@ -9,10 +9,9 @@ class Solution:
             nums1map[nums1[i]] = i
 
         for i in range(len(nums2)):
-            # only then try to find soln
-            while stack and stack[-1] < nums2[i]:
+            while stack and stack[-1] < nums2[i]: # run for all ele
                 ele = stack.pop()
-                if ele in nums1:
+                if ele in nums1: #check here not before while
                     index = nums1map[ele]
                     output[index] = nums2[i]
             stack.append(nums2[i]) # push every ele from nums2 in stack 
