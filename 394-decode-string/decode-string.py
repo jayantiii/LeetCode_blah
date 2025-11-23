@@ -6,12 +6,12 @@ class Solution:
                 stack.append(char)
             else: #means closing parenthesis
                 curr =""
-                while stack and stack[-1] != "[":
+                while stack and stack[-1] != "[": #until not opening bracket
                     c = stack.pop()
                     curr = c + curr  #the order matters!!
                 stack.pop() #remove the [              
                 num = ""
-                while stack and stack[-1].isdigit():
+                while stack and stack[-1].isdigit(): # it can be more than 1 digit so
                     n = stack.pop()
                     num = n+ num
                 res = curr * int(num)
