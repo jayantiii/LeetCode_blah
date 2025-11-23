@@ -3,7 +3,7 @@ class Solution:
         n = len(rooms) # number of rooms
         visit = set()
         def dfs(i):
-            if i in visit: return
+            if i in visit: return # dont forget to check
             if len(visit) == n: return True
             visit.add(i)
             for key in rooms[i]:
@@ -12,7 +12,6 @@ class Solution:
         dfs(0)
         return len(visit) == n
 
-       
-        
+#We visit each room once, and each key once.
 
-#rooms = [[1,3],[3,0,1],[2],[0]]
+# T - 𝑂(𝑛+total keys) = 0(n)
