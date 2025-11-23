@@ -1,8 +1,8 @@
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
-
-         # store number of ways to each cell
-        memo = [[1] * n for _ in range(m)] #fill first
+# store number of ways to each cell
+##fill first row and column with all 1 needed so we fill all 1
+        memo = [[1] * n for _ in range(m)] 
 
         for i in range(1,m):
             for j in range(1,n):             
@@ -13,6 +13,6 @@ class Solution:
 
 #Also, u can do without 2d memo too
 #Just store 1d previous row, thats all we need
-#in for loop have a temo row and at the end make that row the prev row for next loop
+#in for loop have a temp row and at the end make that row the prev row for next loop
 
         
