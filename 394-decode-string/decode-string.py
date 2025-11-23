@@ -8,7 +8,7 @@ class Solution:
                 curr =""
                 while stack and stack[-1] != "[":
                     c = stack.pop()
-                    curr = c + curr 
+                    curr = c + curr  #the order matters!!
                 stack.pop() #remove the [              
                 num = ""
                 while stack and stack[-1].isdigit():
@@ -22,9 +22,15 @@ class Solution:
 
 
 #its not that simple as it looks, brackets can be nested and there can be many chars within
-#so whenever we notice pattern of working first the inner most [ ] then work way up - its stacks
+#so whenever we notice pattern of working first the inner most [ ] then work way up - its stacks, "".join(stack)
         
 #Loop through string and add to stack until u come across a closed bracket
 #Also, understand the logic behind using stack for final answer
+
+#s =
+# "2[abc]3[cd]ef"
+# Stdout, printing stack each for loop
+# ['abcabc']
+# ['abcabc', 'cdcdcd']
 
 
