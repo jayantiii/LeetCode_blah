@@ -1,5 +1,6 @@
 class Solution:
     def canAttendMeetings(self, intervals: List[List[int]]) -> bool:
+        #Time - O(nlogn) + 0(n) = O(nlogn)
         intervals.sort(key = lambda i : i[0]) # sort on start times
 
         for i in range(1, len(intervals)): # can start from 1
@@ -15,7 +16,7 @@ class Solution:
 #are they sorted in any order
 #Are the intervals inclusive or exclusive of endpoints?
 
-#Bruetforce
+#Bruetforce , o(n2)
 #compare every meeting time to every other meeting time
 
         # for i in range(len(intervals)):
