@@ -16,7 +16,7 @@ class Solution:
             memo[(i,j)] = a + b
             return  memo[(i,j)] #dont return this here stupid, memo[(m-1,n-1)]
         
-        return dfs(0,0)
+        return dfs(0,0) # or memo[(m-1,n-1)]
 
 #
 # DFS explores EVERY possible path:
