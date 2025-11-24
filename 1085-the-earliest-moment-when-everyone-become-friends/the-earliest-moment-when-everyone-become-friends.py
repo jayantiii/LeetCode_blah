@@ -14,7 +14,7 @@ class Solution:
                 continue
 
             merged = groupu.union(groupv)
-            merged.add(u)
+            merged.add(u) # needed cause first loop, merged will be union of 2 empty sets
             merged.add(v)
 
             # # point everyone in merged group to the same set
