@@ -32,6 +32,33 @@ class Solution:
 #                     grid[row][col] += min(grid[row - 1][col], grid[row][col - 1])
 #         return grid[-1][-1]
 
+#Top down recueive approach
+    # m, n = len(grid), len(grid[0])
+    #     memo = {}
+
+    #     def dfs(i, j):
+    #         # Out of bounds → impossible path, return +inf so it never gets chosen
+    #         if i < 0 or j < 0:
+    #             return float('inf')
+
+    #         # Base case: starting cell
+    #         if i == 0 and j == 0:
+    #             return grid[0][0]
+
+    #         # Memoized result
+    #         if (i, j) in memo:
+    #             return memo[(i, j)]
+
+    #         # Recurrence:
+    #         # from top: dfs(i-1, j)
+    #         # from left: dfs(i, j-1)
+    #         best_prev = min(dfs(i - 1, j), dfs(i, j - 1))
+
+    #         memo[(i, j)] = grid[i][j] + best_prev
+    #         return memo[(i, j)]
+
+    #     return dfs(m - 1, n - 1)
+
 
 
 
