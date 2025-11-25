@@ -26,7 +26,8 @@ class Solution:
 #Use max heap to continously figure which has most tasks left
 #Use and max heap and queue - little difficult ot understand the process
 
-#Max heap - will keep the highest number track
+#Max heap - will keep the highest number track always
 #once pop heap, decrease count and add to queue with the next time it can be used
-#when the time t comes, add it max to maxheap and repeat process
+#when the time t comes, add it back to maxheap and repeat process
+#also, understand that in heap we only store counts, which char is not needed
         
