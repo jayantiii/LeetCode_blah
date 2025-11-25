@@ -5,7 +5,7 @@ class Solution:
         maxlen= 0
         s,e = 0 ,0
         hashmap = {} #have only 2 at a point, store the value and last index it was seen on
-        #Main is to figure out how to move the pointers
+        #Main is to figure out how to move the pointers, shrink window such that its valid window
         while e < n:
             hashmap[fruits[e]] = e
             if len(hashmap) > 2: #then remove the smallest index
@@ -13,19 +13,10 @@ class Solution:
                 delval = fruits[minindex]
                 del hashmap[delval]
                 s =minindex + 1 #Understand
+
             maxlen = max(maxlen, e -s +1)
             e+=1
         return maxlen
-
-
-
-
-
-
-       
-
-
-
 
 
 #Brute force that works but tle for some, 0(n2)
