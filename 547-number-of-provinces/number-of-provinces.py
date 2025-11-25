@@ -9,8 +9,9 @@ class Solution:
             if i in visit: return
             visit.add(i)
             for neigh in range(len(isConnected)):
-                if isConnected[i][neigh] == 1 and neigh != i:
-                    dfs(neigh)
+                if neigh not in visit:
+                    if isConnected[i][neigh] == 1 and neigh != i:
+                        dfs(neigh)
 
 
         for i in range(len(isConnected)): #loop though each node and perform dfs
