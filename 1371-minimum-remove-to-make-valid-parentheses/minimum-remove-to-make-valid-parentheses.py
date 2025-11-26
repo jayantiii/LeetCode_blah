@@ -16,17 +16,13 @@ class Solution:
 
         while stack: #if any ( left whose close ) we couldnt find
             i = stack.pop()
-            liststring[i] = ""
+            liststring[i] = "" #make it empty string!!
         return "".join(liststring)
         
-
-
-
-
 # 1)number of ( == number of )
-#2) we ca never begin with ) and never end with open
-#3) Use stack to keep track of index of open (
-#Imp - Make the list just that for result u need tp just join it
+#2) we ca never begin with ) and never end with open (
+#3) Use stack to keep track of index of open ( and keep finding matching )
+#Imp - Make the list such that for result u need to just join it
 
 #Note - strings in Python are immutable.
 # This means that once a string object is created, its content cannot be changed. Any operation that appears to modify a string, such as concatenation or using string methods like replace(), actually creates a new string object with the desired changes, and the variable is then reassigned to refer to this new object. 
