@@ -10,7 +10,7 @@ class Solution:
             if  nums[j] - k in prefixsum:
                 remain =  nums[j] - k
                 subarraysum = currsum + nums[j] - prefixsum[remain]
-                maxsum = max(maxsum, subarraysum)
+                maxsum = max(maxsum, subarraysum) #should be inside if
             if nums[j] + k in prefixsum:
                 remain =  nums[j] + k
                 subarraysum = currsum + nums[j] - prefixsum[remain]
@@ -31,11 +31,21 @@ class Solution:
 #how to chose which prefixsum to store when 2 same number
 # subarraysum = prefix(later) - prefix(earlier)
 #Notice that for subarraysum to be more we need to minimise the prefix(earlier)!!!
-
 # Prefix sum solution, think more to understand
-# and when
 
-#Bruetforce, interesting!!
+# A good subarray nums[i..j] must satisfy:
+#       |nums[i] - nums[j]| = k
+
+#   1) nums[i] - nums[j] = k
+#      → nums[i] = nums[j] + k
+#
+#   2) nums[j] - nums[i] = k
+#      → nums[i] = nums[j] - k
+# So we only need to check:
+#         if (x + k) was seen earlier
+#         if (x - k) was seen earlier
+
+#Bruetforce works, interesting!!
         # maxsum = float("-inf")
         # for i in range(len(nums)):
         #     currsum = 0
