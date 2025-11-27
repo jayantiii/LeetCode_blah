@@ -38,6 +38,7 @@ class Solution:
     #     return len(tails)
 
 #DFS SOLN, TLE
+#WITHOUT MEMO, 2 to pwer n
 #For LIS, the decision at index i depends on what previous value you picked, not on “maxlen so far”.
         #Time Complexity = O(n²), Space Complexity = O(n²) (memo), Recursion depth = O(n)
         # @lru_cache(None) #use this lien for memo
