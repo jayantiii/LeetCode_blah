@@ -26,10 +26,10 @@ class Solution:
 #We can simply check the room which is due to get vacated the earliest amongst all the allocated rooms.
 
 #Dont do this,adding all end times intially to heap, this is just bag of all end times
-        # for interval in intervals:
-        #     heapq.heappush(minheap, interval[1])
 #if we do this then minendtime is not “earliest end among active meetings but it’s “earliest end among all meetings ever inserted”.
 
+
+#Half Wrong answer!!
 # My answer passed 52/79, not the right way, has some flaws
 #This doesnt consider that previous conference room can get freed then what
 #Falied - [[9,10],[4,9],[4,17]] - sort - [[4,9][4,17][9,10]]
