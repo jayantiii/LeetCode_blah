@@ -21,7 +21,7 @@ class Solution:
                 res.append(lastrow[x])
             
             if not matrix or not matrix[0]:break
-            #firstcol in reverse!!
+            #firstcol in reverse!! dont forget reverse
             for row in matrix[::-1]:
                 firstcol = row.pop(0)
                 res.append(firstcol)
