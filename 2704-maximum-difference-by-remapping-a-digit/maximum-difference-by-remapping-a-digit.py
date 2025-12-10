@@ -19,5 +19,5 @@ class Solution:
 #Try to remap the first non-nine digit to 9 to obtain the maximum number.
 #Try to remap the first non-zero digit to 0 to obtain the minimum number.
 
-#  maxnum = num is wrong, if we do this, they both point at same
+#maxnum = num ## is wrong, if we do this, they both point at same
 # maxnum[i] = '9' # also wrong, string cant mutate
