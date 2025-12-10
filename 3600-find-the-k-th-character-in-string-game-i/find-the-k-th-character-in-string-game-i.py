@@ -19,22 +19,9 @@ class Solution:
         
         finalword = game(word)
         return finalword[k-1]
-
-
         
 #every turn- create new string
         #    - change each char to its next
         #    - append to newstring to original string
-
-
-            
-
-
-
-
-
-
-#do operataion 2 
-
-#keeps getting sqaured
+#RECURSION!!! I DIDNTTHINK ABOUT THIS, COOL!!
         
