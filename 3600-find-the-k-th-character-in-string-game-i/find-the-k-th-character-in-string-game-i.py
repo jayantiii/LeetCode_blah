@@ -9,9 +9,9 @@ class Solution:
 
             newword = ""
             for c in word:
-                c = ord(c) + 1 #ascii number
-                newchar = chr(c)
-                if c == 'z':
+                ch = ord(c) + 1 #ascii number
+                newchar = chr(ch) #number to char
+                if c == 'z': #for z
                     newchar='a'
                 newword = newword + newchar
 
