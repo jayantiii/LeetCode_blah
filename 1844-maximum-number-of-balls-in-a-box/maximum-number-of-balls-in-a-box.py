@@ -5,7 +5,7 @@ class Solution:
         mapper = {}
 
         for num in range(lowLimit, highLimit+1):
-            #find sum
+            #find sum ofnumber!!
             sum = 0
             while num:
                 digit = num % 10 
@@ -18,6 +18,7 @@ class Solution:
             maxballs = max(maxballs, v)
         return maxballs
 
+#Yes — while num: stops when num becomes 0 because Python treats the condition as a truthiness check.
 
             
 
