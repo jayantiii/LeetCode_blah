@@ -21,7 +21,7 @@ class Solution:
             return 1 + max(self.height(root.left), self.height(root.right))
 
         
-    # clear code
+    # clear code - above is n2, but below is n in time!,
 #     def isBalanced(self, root):
 #         # Helper function to check height and balance
 #         def height(node):
