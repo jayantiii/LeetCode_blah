@@ -7,6 +7,7 @@ class Solution:
                 first = nums[i]
             elif nums[i] <= second:
                 second = nums[i]
+            # means nums[i] is more than f and s
             else:
                 return True
 
