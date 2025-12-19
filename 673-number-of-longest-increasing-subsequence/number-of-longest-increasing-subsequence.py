@@ -26,47 +26,39 @@ class Solution:
 
 
 
-
+# ---IDEAA
 #To count “number of LIS”, for each index i you must know two things about every predecessor j:
 # len[j] = best LIS length ending at j
 # cnt[j] = how many ways achieve that best length ending at j
 
+#- understand when and how to update the counts, confusing
+#----------------------------------------------------------
+#--- MY first soln, lot of issues  and wrong
 # The main issue is that maxcount shouldn't just be an incrementing variable; it needs to be an array that stores how many ways you can reach a specific index with the Longest Increasing Subsequence (LIS) length ending at that index.
 
 # Why your original logic struggledIn your code, you tried to calculate a maxcount for the current index i on the fly. The problem is that nums[i] might connect to several different previous numbers (nums[j]), each of which might already represent multiple sequences.For example, if nums[i] = 10 and it can extend two different 5s, and each 5 was reached in 3 different ways, nums[10] now has $3 + 3 = 6$ ways. You can't know that "6" without looking at count[j].
 
-        lis = [1 for i in range(len(nums))]
-        maxliscount = 0
-        maxlistlength = 1
-        for i in range(1,len(nums)):
-            maxlis = 1
-            maxcount = 1
-            for j in range(i-1,-1,-1): #or can do -->  for j in range(i):
-                prevmaxlis = maxlis
-                if  nums[i] > nums[j]: #dont switch the vars
-                    maxlis = max(maxlis, lis[j]+1)
-                    if maxlis == prevmaxlis:
-                        maxcount+=1
-                    elif maxlis > prevmaxlis:
-                        maxcount = 1
-            lis[i] = maxlis
-            if maxlis > maxlistlength:
-                maxlistlength = maxlis
-                maxlistcount = maxcount
-            elif maxlis == maxlistlength:
-                maxliscount = maxliscount + maxcount
+        # lis = [1 for i in range(len(nums))]
+        # maxliscount = 0
+        # maxlistlength = 1
+        # for i in range(1,len(nums)):
+        #     maxlis = 1
+        #     maxcount = 1
+        #     for j in range(i-1,-1,-1): #or can do -->  for j in range(i):
+        #         prevmaxlis = maxlis
+        #         if  nums[i] > nums[j]: #dont switch the vars
+        #             maxlis = max(maxlis, lis[j]+1)
+        #             if maxlis == prevmaxlis:
+        #                 maxcount+=1
+        #             elif maxlis > prevmaxlis:
+        #                 maxcount = 1
+        #     lis[i] = maxlis
+        #     if maxlis > maxlistlength:
+        #         maxlistlength = maxlis
+        #         maxlistcount = maxcount
+        #     elif maxlis == maxlistlength:
+        #         maxliscount = maxliscount + maxcount
 
 
-        return maxliscount
-        
-
-
-# #how to find longesr is
-
-# [1,3,5,4,7]
-
-# dp = [1,2,3,4,4]
-
-#  [1,1,1,1,1,1]
-
-#  max number how many - length of numbe rof shse
+        # return maxliscount
+    
