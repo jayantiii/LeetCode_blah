@@ -6,16 +6,28 @@ class Solution:
 
         # for i in range(len(nums)):
         #     for j in range(k+1):
-        @cache
-        def dfs(i, mismatch):
-            if mismatch > k:
-                return 0
+
+                  
+        runs = {}
+        best = [0] * (k + 1)
+        for x in nums:
+            """
+            print(x, best, runs)
+            1 [0, 0, 0] {}
+            2 [1, 1, 1] {1: [1, 1, 1]}
+            1 [1, 2, 2] {1: [1, 1, 1], 2: [1, 2, 2]}
+            1 [2, 2, 3] {1: [2, 2, 3], 2: [1, 2, 2]}
+            3 [3, 3, 4] {1: [3, 3, 4], 2: [1, 2, 2]}
+            """
+            if x not in runs:
+                runs[x] = [1] * (k + 1)
+            else:
+                runs[x] = [z + 1 for z in runs[x]]
+            runs[x][1:] = [max(otherrun + 1, xrun) for otherrun, xrun in zip(best, runs[x][1:])]
+            best = [max(b, xrun) for b, xrun in zip(best, runs[x])]
             
-            return 1 + max(
-                (dfs(j, mismatch + (nums[i] != nums[j])) for j in range(i + 1, len(nums))),
-                default=0)
-        
-        return max(dfs(i, 0) for i in range(len(nums)))
+        return best[k]
+ 
 
 
 
@@ -31,6 +43,17 @@ class Solution:
 
 # -----
 # 2D DP$N \times K$"What's the best sequence ending at this specific index?"1D DP$K$ (plus map)"What's the best sequence ending in this value with $j$ changes?"
+
+    #    @cache
+    #     def dfs(i, mismatch):
+    #         if mismatch > k:
+    #             return 0
+            
+    #         return 1 + max(
+    #             (dfs(j, mismatch + (nums[i] != nums[j])) for j in range(i + 1, len(nums))),
+    #             default=0)
+        
+    #     return max(dfs(i, 0) for i in range(len(nums)))
 
 
 # -------------------------------- Bactrack soln, works-----------
