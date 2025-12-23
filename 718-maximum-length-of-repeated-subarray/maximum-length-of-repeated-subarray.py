@@ -14,7 +14,7 @@ class Solution:
         return maxlength
 
  
-# Note - There can be different ways to define d[i][j] and based on that code can differe, dont mix up eevrything. See below to understand    
+# Note - There can be different ways to define d[i][j] and based on that code can differe, dont mix up eevrything. See below to understand
 
 #------ Second DP way ------------------------
 #streak[i][j]: The length of the match ending exactly at this spot (crucial for subarrays).
@@ -64,7 +64,8 @@ class Solution:
 
 #------------MY MISTAKES WHILE WRITING DP CODE -------------
 #1)# else: --- # dp[i][j] = max(dp[i-1][j],dp[i][j-1])
-# -- I write the above condition, but this wrong, if it dont match, it should start from zero
+# -- I write the above condition, but this wrong, if it dont match, it should start from zero.
+#understand that subsequence and subarray are 2 different things 
 
  #2)##handle first row and col
                 # if i== 0 or j == 0:
