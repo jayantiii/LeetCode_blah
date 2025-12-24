@@ -1,20 +1,45 @@
 class Solution:
     def maxTaxiEarnings(self, n: int, rides: List[List[int]]) -> int:
- # dp[i] = best earnings ending at ith ride (rides[0..i-1])
-        # sort by end so we can binary search on ends
-        end_at = [[] for _ in range(n + 1)]
-        for s, e, tip in rides:
-            end_at[e].append((s, (e - s) + tip))
+ # dp[i] = best earnings ending at ith ride (rides[0..i-1]), Time: O(m log m), Space: O(m)
 
-        dp = [0] * (n + 1)
-        for x in range(1, n + 1):
-            dp[x] = dp[x - 1]  # move empty
-            for s, profit in end_at[x]:
-                dp[x] = max(dp[x], dp[s] + profit)
+        rides.sort(key=lambda x: x[1])
+        m = len(rides)
+        if m == 0:return 0
+        ends = [e for _, e, _ in rides]
+        dp = [0] * m        # dp[i] = best earnings ending at ride i (take i)
+        pref = [0] * m      # pref[i] = max(dp[0..i])
 
-        return dp[n]
+        for i, (s, e, tip) in enumerate(rides):
+            profit = (e - s) + tip
+
+            # compatible rides are those with end <= s -> indices [0..j-1]
+            j = bisect_right(ends, s)
+            best_prev = pref[j - 1] if j > 0 else 0
+
+            dp[i] = best_prev + profit
+            pref[i] = max(pref[i - 1], dp[i]) if i > 0 else dp[i]
+
+        return pref[-1]   # same as max(dp)
   
- #Because ends are sorted, those compatible rides form a prefix → you can find the cutoff index with binary search
+
+#--------- Bucket based dp soln, No sorting , IMP, Time: O(n + m), Space: O(n + m) --------------------------------
+#dp[x]=maximum money you can have when you reach point x
+# # end_at[e] = list of rides that end at point e also buckets , Store each as (s, profit) in that bucket
+# You didn’t finish a ride at x ⇒ you just came from x-1 ⇒ dp[x-1]
+# You finished a ride at x ⇒ it started at some s ⇒ money = dp[s] + profit
+#we sweep the road once, and at each point x we update dp[x] using only rides that end at x, because that’s the only moment they can increase earnings.
+
+        # end_at = [[] for _ in range(n + 1)]
+        # for s, e, tip in rides:
+        #     end_at[e].append((s, (e - s) + tip))
+
+        # dp = [0] * (n + 1)
+        # for x in range(1, n + 1):
+        #     dp[x] = dp[x - 1]  # move empty
+        #     for s, profit in end_at[x]:
+        #         dp[x] = max(dp[x], dp[s] + profit)
+
+        # return dp[n]
 
 
 #----------------Dp solution!! with different dp[i] definition  ----------------------------------------
@@ -42,7 +67,8 @@ class Solution:
     #         dp[i] = max(dp[i], prev + profit)
     #     return dp[-1]
 
-##------ same prev soln optimised with binary search 
+##------ same prev soln optimised with binary search , Time: O(m log m)
+ #Because ends are sorted, those compatible rides form a prefix → find the cutoff  with binary search
         # rides.sort(key=lambda x: x[1])
         # ends = [e for _, e, _ in rides]
         # m = len(rides)
@@ -55,7 +81,7 @@ class Solution:
         #     dp[i] = max(dp[i - 1], dp[j] + profit)
         # return dp[m]
 
-#--------------  Recursion soln ------------------------------------------
+#--------------  Recursion soln, Time: O(m log m), Sp: O(m) [cache O(m) , stack up to O(m)]--------------------
         # @lru_cache(None)
         # def dp(index):
         #     if index == n:
@@ -76,8 +102,11 @@ class Solution:
 
         # return dp(0)
 
-# -----------------------------------Longest Path in DAG Graph soln ---------------------
+# -----------------------------------Longest Path in DAG Graph soln, Time: O(n + m) ---------------------
 #  Our goal is to set the problem as a graph question. The graph will be a DAG, and as a result we can efficiently calculate the longest weighted path. When visiting a point, we update its neighbors to have the maximum possible earnings upon reaching that point.
+#Nodes are road points 1..n, Each ride is a directed edge start -> end with weight as profit
+#Because start < end and you only move forward, edges always go to a bigger node ⇒ DA
+#dynamic programming on a DAG (longest path in a DAG), implemented as edge relaxation in topological order.
 
         # g = defaultdict(list)
         # for start, end, tip in rides:
