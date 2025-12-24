@@ -53,6 +53,8 @@ class Solution:
 # - If deadends stayed a list: membership is O(D)
 #   Time  = O(N * 8 * D) = O(ND) (can TLE)
 
+# Worst case: N can be as large as 10⁴ = 10000, because there are only 10,000 possible 4-digit states from "0000" to "9999".
+
 
 #---------------- Why convert deadends LIST -> SET? -------------------------
 # - In Python, `x in some_list` is O(D) because it scans the list linearly
