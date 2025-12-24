@@ -13,7 +13,7 @@ class Solution:
             profit = (e - s) + tip
 
             # compatible rides are those with end <= s -> indices [0..j-1]
-            j = bisect_right(ends, s)
+            j = bisect_right(ends, s) #understand!
             best_prev = pref[j - 1] if j > 0 else 0
 
             dp[i] = best_prev + profit
