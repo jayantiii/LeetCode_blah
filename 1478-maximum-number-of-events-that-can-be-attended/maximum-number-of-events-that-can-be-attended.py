@@ -2,7 +2,7 @@ class Solution:
     def maxEvents(self, events: List[List[int]]) -> int:
         #priortise  smaller events while attending #so if wanna take min endtime , use minheap 
         #O(N log N), Space: O(N)
-        events.sort(key = lambda x: x[0])
+        events.sort(key = lambda x: x[0]) #sort by start needed
         heap = []
 
         i,day =0,1
@@ -30,7 +30,8 @@ class Solution:
                 day+=1 #next day
         return attended
 
-# Greedy - Instead of checking up to 100000 days for each event, use a greedy approach with a priority queue to always pick the event that ends earliest.             
+#Use a min-heap to track active events by their end days.
+
 #---------------------------Bruet force, O(N * D), Space : O(D) -----------------------------------
 # Try attending every event from its startDay to endDay and use the first available day not already used.
 # def maxEvents(events):
@@ -45,43 +46,23 @@ class Solution:
 #                 break
 #     return count
 
-#Use a min-heap to track active events by their end days.
-#----- why think of heap--------------------------------
+#----- why think of heap?----------------------------------------------
 # Think of it as a scheduling game where each day you’re allowed to pick at most one “still-available” event.
 
 # The greedy rule that works is:
-
 # On each day, among all events that have started (start ≤ day) and not yet expired (end ≥ day), attend the one that ends earliest.
 
-# Why? Picking the event with the smallest end is like eating the milk that expires soonest. If you skip it, it may become impossible later, while long-end events are flexible.
-
 # Heap mental model
-
-# Sort events by startDay.
-
-# Sweep day forward.
-
+# Sort events by startDay.# Sweep day forward.
 # Maintain a min-heap of endDays for events that have started.
-
 # Each day:
-
-# Push into heap all events with startDay == day (or <= day as you advance).
-
-# Pop expired events (end < day).
-
-# If heap not empty: pop one (the smallest end) → attend it today.
-
-# Why this is optimal (short proof idea)
+# 1)Push into heap all events with startDay == day (or <= day as you advance).
+# 2)Pop expired events (end < day).
+#3) If heap not empty: pop one (the smallest end) → attend it today.
 
 # If you attend any available event today, and you picked one that ends later than another available one, swapping to the earlier-ending event can’t reduce future options (it frees more days later). So “earliest end” is always safe.
 
-#Greedy - attend event that finishes soon first
-# For each day -
-# 1) Add events that start on day or before day
-# 2) remove events that already have ended
-# 3) if heap isnt empty, attend the top most one
-
-#My aprroach!, works but Tle last 3 cases
+#-------------------My aprroach!, works but Tle last 3 cases ----------------------------
         # events.sort(key = lambda x: x[0]) #sort start times
         # events.sort(key = lambda x: x[1]) #this needed for it!!!
         # attended = 0
@@ -95,6 +76,8 @@ class Solution:
         #             break
         #         day+=1
         # return attended
+
+# ------------------------    Test cases --------------------------
 
 # I just have one advice: Make a habit of coming up with your own edge cases
 
@@ -110,34 +93,24 @@ class Solution:
 # Output: 4
 # Explanation: Despite the large range, you can still attend all events. Attend each on the earliest possible day.
 
+#-----------How to appoach soln?  -------------------------------------------
+
 # Intuition
 # Imagine you're trying to attend as many events as possible, but each event only happens on a specific range of days like from day 1 to day 3. You can attend only one event per day. To get the most events, you want to always pick the event that ends soonest, so you don’t miss out on it. That’s because if you skip an event that ends early, you may not get another chance later, while events with longer ranges can still be attended on future days. So, for each day, we keep track of which events are available and always attend the one that ends the earliest.
 
 # Tiny walkthrough
-
 # Events: [[1,2],[1,3],[2,2]]
 # Sorted by start: [[1,2],[1,3],[2,2]]
-
 # day = 1, i=0
-
 # add events with start ≤ 1:
-
 # push end 2 (i=1)
-
 # push end 3 (i=2)
-
 # heap has [2,3] → attend the one ending earliest (2)
-
 # day = 2, i=2
-
 # add events with start ≤ 2:
-
 # push end 2 (i=3)
-
 # heap has [2,3] (plus we pop expired ones if any)
-
 # attend end 2
-
 # That’s it: the loop is just making sure the heap contains all events that are “open” by today.
 
 
