@@ -113,4 +113,7 @@ class Solution:
 # attend end 2
 # That’s it: the loop is just making sure the heap contains all events that are “open” by today.
 
+## ------------- Can also use union find for this -----------------------------
+# To maximize the number of events attended, we need an efficient way to assign each event to the earliest possible day within its start and end range, ensuring no overlaps. The Union-Find (Disjoint Set Union, DSU) data structure is ideal for this because it helps us quickly find and mark the earliest available day for each event, optimizing our scheduling.
+
 
