@@ -24,11 +24,13 @@ class Solution:
         return importance 
 
 
-# -------------My mistake -------------------------
+# -------------My mistake -----------------------------
 #1) I wrote like this below
     #    emp = q.popleft()
     #         importance += emp.importance
 # -- You’re queueing IDs, but then treating the popped value like an Employee object (emp.importance). Fix: build an id -> Employee lookup first, then BFS/DFS over IDs.
+
+#2) I forgot visit set, but here i dont need but safe to have
 
             
         
