@@ -10,7 +10,7 @@ class Employee:
 class Solution:
     def getImportance(self, employees: List['Employee'], id: int) -> int:
         #lets do bfs
-        emp_by_id = {e.id: e for e in employees}
+        emp_by_id = {e.id: e for e in employees} #Imp step
         importance = 0
         q = deque([id])
         while q:
