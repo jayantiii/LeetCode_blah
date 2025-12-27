@@ -23,3 +23,5 @@ class Solution:
 # Optimised -> N^3 (just create a hash map for last array)
 # Further Optimised -> N^2 (create a hash map for last two arrays)
 # hint -> mpp[ nums3[i] + nums4[j] ]++;
+
+# you add the frequency because each occurrence corresponds to a different pair of indices, and the problem counts quadruples of indices, not “unique value sets.”
