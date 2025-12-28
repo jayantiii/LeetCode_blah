@@ -56,7 +56,7 @@ class Solution:
 #                 return True
 #             if s > target or i == len(nums):
 #                 return False
-#             return dfs(i + 1, s + nums[i]) or dfs(i + 1, s)
+#             return dfs(i + 1, s + nums[i]) or dfs(i + 1, s)   #take or skip
 
 #         return dfs(0, 0)
 
