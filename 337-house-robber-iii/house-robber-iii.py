@@ -31,8 +31,6 @@ class Solution:
 
         return dfs(root)
 
-
-
 # You can look at the tree in a top-down manner, there will be two cases
 # max containing the root node
 # max excluding the root and including the child nodes
