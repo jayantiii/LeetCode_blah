@@ -21,8 +21,11 @@ class Solution:
 #Hint - You dont need to traverse the graph as such
 #For each node, sort its neighbors in descending order and take k max valued neighbors.
 
+#-----My mistake while coding-------------------
 # Sorting isn't "In-place": sorted(graph[node]) returns a new list; it doesn't modify the existing one. You need to use graph[node].sort() or reassign the variable.
 
-#I tried doing like this - This inner loop not needed
+#I tried doing like this - This inner loop not needed for sum
         #  for neigh in graph[node]: #graph[node], not just node
         #         nodesum += vals[neigh]
+
+#Also dont forget to add the node center value also along with neighs
