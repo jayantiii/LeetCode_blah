@@ -48,6 +48,7 @@ class Solution:
         #     left = dfs(node.left)
         #     right = dfs(node.right)
 
+
         #     rob_this = node.val + left[1] + right[1]
         #     not_rob_this = max(left) + max(right)
 
@@ -55,6 +56,7 @@ class Solution:
 
         # return max(dfs(root))
 
+##Comment - rob_this=node.val+not_rob_left+not_rob_right
 # So the concept is exactly skip/take, but now:
 # Each node stores both values (rob_this, not_rob_this) → like a mini DP table for that node.
 # We never recompute the same subtrees, unlike brute force.
