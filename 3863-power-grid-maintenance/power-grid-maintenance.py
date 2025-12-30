@@ -1,10 +1,11 @@
 class Solution:
     def processQueries(self, c: int, connections: List[List[int]], queries: List[List[int]]) -> List[int]:
+        ## Time: O(c + m + c log c) = O((c + m) + c log c)
         res = []  # only store answers for type-1 queries
         onlinestations = set(range(1,c+1))
-        graph = {i:[] for i in range(1,c+1)}
+        graph = {i:[] for i in range(1,c+1)} # O(c + m)
 
-        for u,v in connections:
+        for u,v in connections: 
             graph[u].append(v)
             graph[v].append(u)
 
@@ -57,24 +58,22 @@ class Solution:
 
         return res
 
-#Important --
+#Important, Big questions try again!! --
 #we need store all strongly connected components
-# comp id, 0,1 
 #Also, we need heaps for each SCC 
-#-------------My one big mistake--------------------
+#-------------My one big mistake-----------------------------
 # You’re getting -1 where the judge wants 1 because the problem is not “smallest online neighbor”, it’s “smallest online station in the same connected component (grid), even through offline nodes”. But I coded for smallest neighbour.
 
-# For each station, know which connected component it belongs to, and be able to access all nodes in that component.
-# Two standard ways:
-# Precompute components with DFS/BFS and assign a comp_id to each node.
-# Use DSU (Disjoint Set Union / Union-Find) and group nodes by their root.
-
-# Heap logic is wrong for online nodes.
+# My Heap logic was wrong for online nodes.
 # You heappop even when smallest is online. Then this node disappears from the heap, so later queries in the same component can’t see it anymore. You only want to pop offline nodes; for online ones you should just peek.
 
-#-------------Suggestion---------------------------        
+#-------------Suggestion-----------------------------------------       
 # Use discard instead of if station in ...: remove. for set
 # discard avoids the explicit membership check.
+
+# For each station, know which connected component it belongs to, and be able to access all nodes in that component.# Two standard ways:
+# Precompute components with DFS/BFS and assign a comp_id to each node.
+# Use DSU (Disjoint Set Union / Union-Find) and group nodes by their root.
 
 #----------------------Union Find soln, see how -----------------------------
 # class Solution:
@@ -114,3 +113,46 @@ class Solution:
 #             else:
 #                 online_check[x] = 0
 #         return res
+
+# The union-find solution is conceptually the same idea but:
+# Instead of DFS to find components,
+# You use Disjoint Set Union (DSU / Union-Find) to build components.
+
+#------------------------------ExPLAINATION OF tIME OF dfS SOLN----------------------
+#  """
+#         c = number of stations (nodes)
+#         m = number of connections (edges)
+#         Q = number of queries
+
+#         Preprocessing:
+#         1) Build adjacency list `graph`:
+#            - Create dict for 1..c        → O(c)
+#            - Add each undirected edge    → O(m)
+#            => O(c + m)
+
+#         2) DFS over graph to find components:
+#            - Visit each node once        → O(c)
+#            - Traverse each edge twice    → O(m)
+#            => O(c + m)
+
+#         3) For each node, push into its component heap:
+#            - Each node heappush once     → O(log c) per node worst-case
+#            - Total nodes = c             → O(c log c)
+
+#         => Total preprocessing time:
+#            O(c + m) [graph] + O(c + m) [DFS] + O(c log c) [heaps]
+#            = O(c + m + c log c)
+#            = O((c + m) + c log c)
+
+#         Query phase (for completeness):
+#         - Type-2 queries: mark offline       → O(1) each → O(Q)
+#         - Type-1 queries:
+#             * constant work per query
+#             * plus pops from heaps (lazy deletion):
+#               each node popped at most once → O(c log c) over all queries
+#           => O(Q + c log c)
+
+#         Overall:
+#         - Time ≈ O(c + m + Q + c log c) = O((c + m + Q) log c) in big-O form
+#         - Space: O(c + m) for graph + arrays + heaps
+#         """
