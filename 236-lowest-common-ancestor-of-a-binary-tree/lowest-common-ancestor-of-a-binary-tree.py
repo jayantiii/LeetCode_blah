@@ -38,6 +38,16 @@ class Solution:
 # left is not None and right is not None
 # → this node is the lowest node where both sides contain something → LCA.
 
+##---------Followup Question, what if p,q not in tree------------------
+# “My current solution assumes both p and q exist in the tree, which is what LeetCode 236 guarantees.
+# If that assumption is removed, I’d modify the DFS to not only return a candidate LCA node, but also booleans indicating whether p and q were actually found in that subtree.
+# At the end, I only accept the LCA if both were found; otherwise I return None.”
+#Example change --
+        # def dfs(node):
+        #     if not node:
+        #         # No LCA, and neither p nor q found in an empty subtree
+        #         return (None, False, False)
+
 # ---------------- Example where p is an ancestor of q ----------------
 #
 # Build this tree:
