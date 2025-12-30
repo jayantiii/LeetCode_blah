@@ -7,7 +7,7 @@
 class Solution:
     def verticalOrder(self, root: Optional[TreeNode]) -> List[List
     [int]]:
-        if not root:
+        if not root: #edgecase
             return []
         q = deque([(root,0)]) #(node,column) 
         columns = {} #{colnumber:arrayofnodes}
