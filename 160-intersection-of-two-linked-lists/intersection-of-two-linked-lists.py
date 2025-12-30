@@ -10,12 +10,12 @@ class Solution:
         a,b = headA, headB
         while a is not b:
             if a is None:
-                a = headB
+                a = headB #IMP!
             else:
                 a = a.next 
 
             if b is None:
-                b = headA
+                b = headA #IMP!
             else:
                 b = b.next
         return a
