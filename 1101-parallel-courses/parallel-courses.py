@@ -13,7 +13,7 @@ class Solution:
                 q.append(i)
 
         semesters = 0
-        visitedcourses = 0
+        visitedcourses = 0 #needed 
         while q:
             size = len(q)
             visitedcourses += size
