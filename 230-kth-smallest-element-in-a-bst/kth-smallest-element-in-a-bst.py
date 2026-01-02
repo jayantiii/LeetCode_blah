@@ -17,7 +17,7 @@ class Solution:
             if left is not None:
                 return left  #if the answer is found in the left subtree, dont ovewrite or decrease k
         
-            k-=1 
+            k-=1  #this here
             if k == 0:
                 return node.val
                 
