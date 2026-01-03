@@ -24,6 +24,7 @@ class Solution:
                 newx, newy = r ,c #start here
                 steps = 0
                 #loop until a wall and condition check maze[x + dr][y + dc] this!!
+                #IMP - Bounds check must be for the next cell
                 while 0<= newx + x < m and 0<= newy + y < n and maze[newx + x ][newy + y] == 0: 
                     steps +=1
                     newx = newx + x
@@ -43,6 +44,7 @@ class Solution:
 # This problem is not plain DFS step-by-step. The “ball” must roll until it hits a wall, so each move has a variable cost (number of cells rolled). That makes it a shortest path on weighted edges → use Dijkstra (min-heap) (or BFS only if all moves had equal cost, which they don’t).
 
 # identifying that this is a dijkstra question and not DP question  is the 90% of the work 
+# dist is needed because this problem is shortest path with cycles and variable edge costs. The same stop cell (r,c) can be reached multiple ways with different total distances, and you must keep the best one.
 
 #--------------------DFS SOLnm but not optimal here----------------------------
         # m, n = len(maze), len(maze[0])
