@@ -1,6 +1,6 @@
 class Solution:
     def jobScheduling(self, startTime: List[int], endTime: List[int], profit: List[int]) -> int:
-        #top-down DP (recursion + memoization):
+        #top-down DP (recursion + memoization) and Binary Search:
         n = len(profit)
         times = [[startTime[i],endTime[i],profit[i]] for i in range(len(profit))]
         times.sort()
@@ -73,3 +73,36 @@ class Solution:
             # # advance j until we find the first job with start >= end_i
             # while j < n and times[i][1] > times[j][0]: #no equal sign, it will overshoot
             #     j+=1 
+
+##--------------Bottom up Dp,prefix, sort end ------------------------------------
+    #    jobs = sorted(zip(endTime, startTime, profit))  # sort by end
+    #     ends = [e for e, _, _ in jobs]
+    #     n = len(jobs)
+
+    #     # dp[i] = best profit using first i jobs (end-sorted)
+    #     dp = [0] * (n + 1)
+
+    #     for i in range(1, n + 1):
+    #         e, s, p = jobs[i - 1]
+
+    #         # k = how many jobs end <= s  (i.e., last non-overlapping job index in prefix)
+    #         k = bisect_right(ends, s, 0, i - 1)
+
+    #         dp[i] = max(dp[i - 1], p + dp[k])
+
+    #     return dp[n]
+
+
+##----------Bottom up Dp, suffix, sort start---------------------------------------
+        # jobs = sorted(zip(startTime, endTime, profit))   # sorted by start
+        # starts = [s for s, _, _ in jobs]
+        # n = len(jobs)
+
+        # dp = [0] * (n + 1)  # dp[n]=0
+        # # dp[i] = maximum profit we can earn using jobs with indices in [i .. n-1]
+        # for i in range(n - 1, -1, -1):
+        #     s, e, p = jobs[i]
+        #     j = bisect_left(starts, e)   # first start >= end
+        #     dp[i] = max(dp[i + 1], p + dp[j])
+
+        # return dp[0]
