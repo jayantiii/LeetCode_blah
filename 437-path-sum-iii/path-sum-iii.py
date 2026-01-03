@@ -6,6 +6,7 @@
 #         self.right = right
 class Solution:
     def pathSum(self, root: Optional[TreeNode], targetSum: int) -> int:
+        #Understand every bit --
         prefixsum = {0:1} 
         self.count = 0
         def dfs(node,currsum):
@@ -14,7 +15,7 @@ class Solution:
 
             currsum = currsum + node.val
              # count paths ending at this node
-            self.count += prefixsum.get(currsum - targetSum, 0)
+            self.count += prefixsum.get(currsum - targetSum, 0) #just gets, doesnt create
 
             # add current prefix sum to the path
             prefixsum[currsum] = prefixsum.get(currsum, 0) + 1
@@ -24,27 +25,26 @@ class Solution:
             dfs(node.right, currsum)
 
             # backtrack
-            prefixsum[currsum] -= 1
+            prefixsum[currsum] -= 1 #IMP, undo the exact change
 
         dfs(root,0)
 
         return self.count
         
 
-
 #use prefix sum and hashmap
 # A downward path ending at current node sums to target if there exists an earlier prefix sum currSum - target.
 # Keep a dict cnt[prefixSum] = how many times this prefix sum has appeared on the current root→node pat
 
+#----------Mistakes-----------------------------------
 # You can’t prune with (currSum + node.val) > targetSum because node values can be negative.
-
-# You’re not handling node is None.
 
 # You’re not using the prefix-sum idea correctly: you need a count map of prefix sums along the current root→node path, with backtracking.
 
-# Variable name mismatches (currsum vs currSum, target vs targetSum).
+#Prefixsum[target] is not the answer, prefixsum is only for current path, I coudlnt write the structure the on my own, confusing, Think!!
 
-        # prefixsum = {0: 1}
+#-----------------Similar code---------------------------
+        # prefixsum = {0: 1}.  #needed
 
         # def dfs(node, currsum):
         #     if not node:
