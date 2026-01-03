@@ -36,7 +36,7 @@ class ThroneInheritance:
 # param_3 = obj.getInheritanceOrder()
 
 
-#just a fancy way to say pre-order traversal of a tree.
+#IMP - just a fancy way to say pre-order traversal of a tree.Important to realise!!!
 #Order -> King -> Olderchild ->olderchildschild ->nextkingschild
 #This problem is literally a rooted family tree where the inheritance order is preorder DFS (visit node, then children in birth order), skipping dead names. A hashmap/dict parent -> [children...] is perfect because births must preserve insertion order.
 
