@@ -6,7 +6,7 @@
 #         self.right = right
 class Solution:
     def pathSum(self, root: Optional[TreeNode], targetSum: int) -> int:
-        #Understand every bit --
+        #Understand every bit, backtracking --
         prefixsum = {0:1} 
         self.count = 0
         def dfs(node,currsum):
