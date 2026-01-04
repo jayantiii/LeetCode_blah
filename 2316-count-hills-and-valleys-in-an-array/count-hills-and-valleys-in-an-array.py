@@ -9,14 +9,14 @@ class Solution:
 
             left = i-1
             right = i+1
-            while left>= 0 and nums[left] == nums[i]:
+            while left>= 0 and nums[left] == nums[i]: #took more time to frame this
                 left-=1
                 # dups+=1, #dont calc like duplicate like this, it will count more than
 
             while right < len(nums) and nums[right] == nums[i]:
                 right+=1
 
-            if left < 0 or right >= len(nums):
+            if left < 0 or right >= len(nums): # needed
                 continue
             
             if  nums[left] <nums[i] and nums[right] < nums[i]: #then hill
@@ -25,6 +25,19 @@ class Solution:
                 valleys+=1
 
         return hills + valleys 
-            
-#non equal niehbour means - not equal to itsself 
-#[ 2,3,3,3,5,6]
+
+#------------------------Simple clean solnnn----------------------------------------------
+# Step 1: remove consecutive duplicates
+# Step 2: count local extrema (middle > both neighbors OR middle < both neighbors)
+# Warning -> Anything “just count duplicates” will miss monotone/flat patterns and overcount others.
+
+        # a = [nums[0]]
+        # for v in nums[1:]:
+        #     if v != a[-1]:
+        #         a.append(v)
+
+        # ans = 0
+        # for i in range(1, len(a) - 1):
+        #     if (a[i] > a[i-1] and a[i] > a[i+1]) or (a[i] < a[i-1] and a[i] < a[i+1]):
+        #         ans += 1
+        # return ans
