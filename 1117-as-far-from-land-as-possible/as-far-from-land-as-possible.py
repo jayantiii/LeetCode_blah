@@ -2,7 +2,7 @@ class Solution:
     def maxDistance(self, grid: List[List[int]]) -> int:
         """
         WHY WE START AT LAND (1s):
-          | Starting at Land (1s)              | Starting at Water (0s)             |
+        | Starting at Land (1s)              | Starting at Water (0s)             |
         |------------------|------------------------------------|------------------------------------|
          | Find dist: Water -> nearest Land   | Find dist: Land -> nearest Water   |
          | Water furthest from any land       | Land furthest from any water       |
