@@ -27,21 +27,31 @@ class Solution:
 # The standard clean fix is: add a maximum length L (or maximum number of elements).
 
 #----------------------------Follow up soln--------------------------------
-   # dp[t] = ways to make sum t using exactly current length `len`
+# dp[t] = ways to make sum t using exactly current length `len`
 
-   #IMPPP, ITS SPARSE DP
-   #store dp as a hash map (dict): only sums that are actually reachable are kept (sparse DP).
+#IMPPP, ITS SPARSE DP
+#store dp as a hash map (dict): only sums that are actually reachable are kept (sparse DP).
 
-        # dp = {0: 1}          # len = 0
-        # ans = 0              # ways to make target using length <= L
+# dp maps: sum -> number of sequences that make this sum
+# IMPORTANT: dp always represents "exactly current length" (not <=).'
 
-        # for _len in range(1, L + 1):
-        #     nxt = {}
-        #     for s, cnt in dp.items():
-        #         for x in nums:
-        #             ns = s + x
-        #             nxt[ns] = nxt.get(ns, 0) + cnt
-        #     ans += nxt.get(target, 0)
-        #     dp = nxt
+# dp = {0: 1}          # length = 0: only one sequence (empty) makes sum 0
+# ans = 0              # total ways to make `target` using length 1..L (<= L)
 
-        # return ans
+# for _len in range(1, L + 1):
+#     # nxt will become the dp for "exactly length = _len"
+#     nxt = {}
+
+#     # For every sum `s` we could make with length (_len-1),
+#     # try appending each number x to form a length-_len sequence.
+#     for s, cnt in dp.items():          # cnt = ways to make sum s with length (_len-1)
+#         for x in nums:
+#             ns = s + x                 # new sum after appending x
+#             # all sequences that made s can be extended by x,
+#             # so they contribute cnt more sequences to sum ns.
+#             nxt[ns] = nxt.get(ns, 0) + cnt
+
+#     # nxt[target] = ways to make target with exactly length _len
+#     ans += nxt.get(target, 0)          # add these into "at most L"
+
+#     dp = nxt                           # move forward: now dp is for length _len
