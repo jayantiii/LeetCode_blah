@@ -1,7 +1,7 @@
 class Solution:
     def invalidTransactions(self, transactions: List[str]) -> List[str]:
         invalid = set()
-        t = {}    #{name: [(city,time,ind),city,time,ind)..]}
+        t = {}    #{name: [(city,time,ind),city,time,ind)..]} #store ind!!
         for i in range(len(transactions)):
             transaction = transactions[i].split(",")
             name = transaction[0]
@@ -15,7 +15,7 @@ class Solution:
 
             if name in t:
                 oldtransac = t[name]
-                for oldtc in oldtransac:
+                for oldtc in oldtransac: #check all old!!
                     oldcity, oldtime,ind = oldtc
                     if abs(time - oldtime) <= 60 and city != oldcity:
                         invalid.add(i) #add indices in a set to prevent dup
@@ -30,6 +30,7 @@ class Solution:
 
 
 # good question to ask : if the transactions are in the order they came in?
+#if we need to makr previous seen tranc invalid
 
 #Notice ( Run thrugh examples before code)
 #if ["alice,20,800,mtv","alice,50,100,beijing"]
