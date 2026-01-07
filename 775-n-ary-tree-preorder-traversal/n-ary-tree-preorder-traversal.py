@@ -7,3 +7,5 @@ class Solution:
         for child in root.children:
             result.extend(self.preorder(child))
         return result
+
+#see how to do!!
