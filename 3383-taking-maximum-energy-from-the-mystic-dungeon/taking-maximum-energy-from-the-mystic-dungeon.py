@@ -10,3 +10,13 @@ class Solution:
         return max(dp)
         
 # we need to find a optimal starting point
+
+#---------------------------dfs--------------------------------------------
+        # @lru_cache(None)
+        # def dfs(i: int) -> int:
+        #     if i >= n:
+        #         return 0
+        #     j = i + k
+        #     return energy[i] + (dfs(j) if j < n else 0)
+
+        # return max(dfs(i) for i in range(n))
