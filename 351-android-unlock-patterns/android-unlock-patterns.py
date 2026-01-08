@@ -54,7 +54,7 @@ class Solution:
             for j in range(3):
             #from each cell start and do dfs!
                 totalcount += dfs(i,j,1)
-                visit.clear()
+                visit.clear() # this not needed -> cause of visit.remove(num)   
             
         return totalcount
                    
