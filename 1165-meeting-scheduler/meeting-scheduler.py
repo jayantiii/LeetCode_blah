@@ -21,6 +21,7 @@ class Solution:
                     end = start + duration
                     return [start,end]
             
+                #dONT DIRECTLY DO J+=1
                 # IMP! # discard the interval that ends earlier
                 if e2 <= e1:
                     j += 1 #          # slots2 ends first -> move j
@@ -28,7 +29,6 @@ class Solution:
                     # slots1 ends first -> next s1
                     break
                         
-
         return []
 
 
