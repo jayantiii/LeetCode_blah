@@ -20,13 +20,11 @@ class Solution:
         return res
         
 
-        
-
-
 #Follow-up: Could you solve it in O(n log(k)) time and O(n) extra space?
-#BUCKET SORTING!!
+# Bucket Sorting + Trie
+# Since we need at least klogk time to sort k elements by comparison , we have to turn to non-comparison sorting such as bucket/counting sorting to determine potential k elements with max frequencies.
 
-
+# For the words with the same frequency, we store them together in a trie. By traversing a trie in a pre-order DFS way, we can get all words in the trie in a lexicographical order.
 
 # Brute Force Intuition
 # As we need the most frequent k words, to find which words are of higher frequencies, we just need to sort all words by their frequencies and return the first k words. Notice that the sorting order is first by frequencies and then lexicographically.
