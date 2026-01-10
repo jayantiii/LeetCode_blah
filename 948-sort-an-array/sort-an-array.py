@@ -43,6 +43,23 @@ class Solution:
 
         return mergesort(nums)
 
+#Example
+# mergesort([5,2,4,1,3])
+#   ├─ mergesort([5,2])
+#   │    ├─ mergesort([5])  -> base (return)
+#   │    └─ mergesort([2])  -> base (return)
+#   │    └─ merge [5] + [2] => [2,5]
+#   └─ mergesort([4,1,3])
+#        ├─ mergesort([4])    -> base
+#        └─ mergesort([1,3])
+#             ├─ mergesort([1]) -> base
+#             └─ mergesort([3]) -> base
+#             └─ merge [1] + [3] => [1,3]
+#        └─ merge [4] + [1,3] => [1,3,4]
+
+# merge [2,5] + [1,3,4] => [1,2,3,4,5]
+
+
 
 
 
