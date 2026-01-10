@@ -20,6 +20,32 @@ class Solution:
 
         return True
 
+#Line sweep soln!!
+
+  # delta[x] = net change in passengers at location x
+        # delta = {}
+
+        # for p, s, e in trips:
+        #     delta[s] = delta.get(s, 0) + p   # pick up at start
+        #     delta[e] = delta.get(e, 0) - p   # drop at end
+
+        # cur = 0
+        # # Must process locations in increasing order (the car moves forward)
+        # for x in sorted(delta):
+        #     cur += delta[x]
+        #     if cur > capacity:
+        #         return False
+
+        # return True
+
+#TIME
+# Heap (your “prev” solution):
+# Time: O(n log n) = sort trips O(n log n) + push/pop each trip O(log n)
+# Space: O(n) (heap)
+
+# Line sweep (delta map “this” solution):
+# Time: O(n log n) = build deltas O(n) + sort unique locations m ≤ 2n so O(m log m)
+# Space: O(n) (delta map)
             
 
             
