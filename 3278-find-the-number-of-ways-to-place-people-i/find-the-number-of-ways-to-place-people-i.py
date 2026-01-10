@@ -11,7 +11,7 @@ class Solution:
             for j in range(i+1,len(points)): #and lower-right
                 x2,y2 = points[j][0], points[j][1]
 
-                # must be below/at y1 to be a lower-right
+                # must be below/at y1 to be a lower-right and higher than best_y2
                 if y2 <= y1 and y2 > best_y2:
                     count += 1
                     best_y2 = y2
@@ -19,11 +19,4 @@ class Solution:
         return count
 
 #Bruetfroce is to have 3rd inner loop to check if a point there is the rect formed.
-
-     
-
-
-
-        
-
-#We can enumerate all the upper-left and lower-right corners.
+#We can enumerate all as the upper-left and lower-right corners.
