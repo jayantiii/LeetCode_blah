@@ -8,7 +8,7 @@ class Node(): #bst tree node!! Use this store events
     # def insert(self,start,end) - can do this here to0
 
 class MyCalendar:
-
+    #  Your BST: checks only a single path down the tree ⇒ O(h) per book()
     def __init__(self):
         self.root = None
         
