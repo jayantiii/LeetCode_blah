@@ -32,6 +32,9 @@ class Solution:
 
         return res
 
+
+# currip + value + ("." if dots > 1 else "") -- SO U DONT END BY a DOT
+
 # Level 0 (Start)             [ "" ]
 #                              /  |  \
 # Level 1 (Seg 1)          "2"   "25"  "255"
@@ -44,6 +47,7 @@ class Solution:
 #                                              ^      ^
 #                                            Valid  Invalid (String not empty)
 
+#----------------Without recurse---------------------------------------
 # def leading_0(string):
 #     return string[0] == "0" and string != "0"
 
