@@ -28,43 +28,35 @@ class Solution:
 
         
 ##------------Most optimal O(m,n) solution----------------------------
-#Clue path: turn each row into a histogram, then for each row count “all-ones submatrices ending at this row” using a monotonic increasing stack.
+#for each row, treat it as the bottom of rectangles, build a histogram heights[], then count how many all-1 submatrices end at this row using a monotonic stack.
 
-# m, n = len(mat), len(mat[0])
-#         heights = [0] * n
-#         total = 0
-        
-#         for i in range(m):
-#             # Update heights for the current row (histogram heights)
-#             for j in range(n):
-#                 heights[j] = heights[j] + 1 if mat[i][j] == 1 else 0
-            
-#             # Use a monotonic stack to count rectangles ending at row 'i'
-#             # stack stores: (height, number of rectangles ending here)
-#             stack = []
-#             row_sum = 0
-#             for j in range(n):
-#                 count = 0
-#                 # When we encounter a shorter height, we must "cap" the rectangles
-#                 while stack and stack[-1][0] >= heights[j]:
-#                     stack.pop()
-                
-#                 if not stack:
-#                     # If no smaller height to the left, the width is (j + 1)
-#                     count = heights[j] * (j + 1)
-#                 else:
-#                     # Width is limited by the previous smaller height's index
-#                     prev_h, prev_count = stack[-1]
-#                     # rectangles = (height * distance to prev smaller) + previous count
-#                     count = heights[j] * (j - stack[-1][2]) + prev_count
-                
-#                 # We store height, the count of rectangles ending here, and current index
-#                 stack.append((heights[j], count, j))
-#                 row_sum += count
-                
-#             total += row_sum
-            
-#         return total
+    #  m, n = len(mat), len(mat[0])
+    #     heights = [0] * n
+    #     total = 0
+
+    #     for i in range(m):
+    #         # build histogram heights for this row
+    #         for j in range(n):
+    #             heights[j] = heights[j] + 1 if mat[i][j] == 1 else 0
+
+    #         stack = []  # (height, count)
+    #         row_sum = 0
+
+    #         for j in range(n):
+    #             h = heights[j]
+    #             cnt = 1
+
+    #             # pop higher/equal heights and merge their subarray counts
+    #             while stack and stack[-1][0] >= h:
+    #                 prev_h, prev_cnt = stack.pop()
+    #                 row_sum -= prev_h * prev_cnt
+    #                 cnt += prev_cnt
+
+    #             stack.append((h, cnt))
+    #             row_sum += h * cnt
+    #             total += row_sum
+
+    #     return total
 
 ##--- Brute force without recursion--------------------------------------------
 # class Solution:
