@@ -7,12 +7,14 @@ class Solution:
         # we have 4 dots, think where to put each
 
         def backtrack(i,dots, currip):
-            if dots < 0 and i == len(s) : #both is base case
+            # minimal: stop if we already used too many segments
+            if dots < 0:
+                return
+
+            if dots == 0 and i == len(s) : #both is base case
                 res.append(currip) #strings dont have copy
                 
-            for j in range(i,len(s)):
-                if j > i + 3: #only 3 next possible
-                    break
+            for j in range(i,min(i+3,len(s))):
                 value = s[i:j+1] #this!
                 if int(value) <= 255:
 
@@ -20,7 +22,11 @@ class Solution:
                 # cannot have leading zeros like "00" or "01".
                     if i==j or s[i]!="0":
 
-                        backtrack(j+1,dots-1,currip + s[i:j+1] + "." )
+                        backtrack(
+                            j + 1,
+                            dots - 1,
+                            currip + value + ("." if dots > 1 else "")
+                        )
 
         backtrack(0,4,"") #start with empty
 
@@ -38,22 +44,22 @@ class Solution:
 #                                              ^      ^
 #                                            Valid  Invalid (String not empty)
 
-def leading_0(string):
-    return string[0] == "0" and string != "0"
+# def leading_0(string):
+#     return string[0] == "0" and string != "0"
 
-def valid(part):
-    return not leading_0(part) and int(part) <= 255
+# def valid(part):
+#     return not leading_0(part) and int(part) <= 255
 
-def valid_ip(nums):
-    return all(valid(part) for part in nums)
+# def valid_ip(nums):
+#     return all(valid(part) for part in nums)
 
-class Solution:
-    def restoreIpAddresses(self, s: str) -> List[str]:
-        ret = []
-        for i, j, k in itertools.combinations(range(1, len(s)), 3):
-            ip = [s[:i], s[i:j], s[j:k], s[k:]]
-            if valid_ip(ip):
-                ret.append(".".join(ip))
-        return ret
+# class Solution:
+#     def restoreIpAddresses(self, s: str) -> List[str]:
+#         ret = []
+#         for i, j, k in itertools.combinations(range(1, len(s)), 3):
+#             ip = [s[:i], s[i:j], s[j:k], s[k:]]
+#             if valid_ip(ip):
+#                 ret.append(".".join(ip))
+#         return ret
 
         
