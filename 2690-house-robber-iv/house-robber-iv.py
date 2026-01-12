@@ -1,6 +1,6 @@
 class Solution:
     def minCapability(self, nums: List[int], k: int) -> int:
-
+        #IMP - see how this works!!
         def isvalid(cap):
             count, i = 0,0
             while i <len(nums):
@@ -24,13 +24,11 @@ class Solution:
 
         return l
 
-## Capability cap = 3 means: every robbed house must have value ≤ 3 (equivalently, the max robbed value is ≤ 3). You are not required to rob a house with value exactly 3.    
+## Normally, if a question asks for the 'maximum of some minimum' or 'minimum of some maximum' it can be solved using Binary Search.
 
+## Capability cap = 3 means: every robbed house must have value ≤ 3 (equivalently, the max robbed value is ≤ 3). You are not required to rob a house with value exactly 3.   
 
-
-# Normally, if a question asks for the 'maximum of some minimum' or 'minimum of some maximum' it can be solved using Binary Search.
-
-# There are 3 layers to crack this problem :
+# There are 3 layers to crack this problem --:
 
 # Understand that DP will fail since number of states is quadratic.
 # Think of binary search approach since its min-max.
