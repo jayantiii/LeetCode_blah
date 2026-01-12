@@ -6,6 +6,7 @@ class Solution:
         count = Counter(power)
         uniquevals = sorted(count)
         m = len( uniquevals)
+
         dp = [0]*m #  dp[i] = best using vals[0..i]
         dp[0] =  uniquevals [0]*count[ uniquevals [0]]
 
@@ -19,7 +20,8 @@ class Solution:
 
             #  find previous index j that DOES NOT conflict:
             # conflict range is [x-2, x-1] (and also x+1, x+2 but those are future)
-            while j >= 0 and uniquevals[j] >=  uniquevals[i] -2:
+
+            while j >= 0 and uniquevals[j] >=  uniquevals[i] -2: #IMP!!
                 j-=1
             take = earn + dp[j]
 
