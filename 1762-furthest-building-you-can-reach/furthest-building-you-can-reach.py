@@ -30,7 +30,6 @@ class Solution:
 
         return len(heights) - 1 # went till end
 
-
 # Intuition:
 # Spend bricks on every uphill jump and remember those jumps in a max-heap.
 # If bricks go negative, “retroactively” use a ladder on the largest jump so far (pop heap) to refund bricks.
@@ -38,12 +37,10 @@ class Solution:
 
 #  the algorithm works by letting bricks go negative temporarily and then “fixing” it by swapping one past brick-paid jump to a ladder.
 
-
-#---------------------------------Backtracking-----------------------
+#---------------------------------Backtracking---------------------------------
 # Time: exponential — worst case you branch on every uphill step.
 #   O(2^U)
 #   where U = count of indices i with heights[i+1] > heights[i] 
-# Space: O(n) recursion stack depth.
 
         # @lru_cache(None)
         # def backtrack(i,b,l):
@@ -74,6 +71,15 @@ class Solution:
         # return backtrack(0,bricks,ladders)
 
         # backtrack(0)
+
+# With memo (@lru_cache on (i, b, l)):
+# Time:  O(n * (bricks+1) * (ladders+1))   # each state computed once, O(1) transitions
+# Space: O(n * (bricks+1) * (ladders+1))   # cache size
+#        + O(n)                            # recursion stack depth
+#
+# Note: this is usually NOT feasible because bricks can be huge (e.g., 1e9),
+# so the state space blows up even though memo removes the 2^U branching.
+
 
 # #RETURN IS IMP IN BELOW LINES SO THAT IT DONT TRY BRICK AND LADDERS BRANCH -->
 
