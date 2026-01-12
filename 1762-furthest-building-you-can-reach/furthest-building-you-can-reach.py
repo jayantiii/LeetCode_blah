@@ -14,7 +14,7 @@ class Solution:
 
             # FIX: always try bricks first, dont use a if condn here
             heapq.heappush(maxheap, diff)   # diff is negative
-            bricks += diff    # FIX: spend bricks (adds negative => subtracts climb)
+            bricks += diff    # FIX: spend bricks (adds negative => subtracts)
 
 
             if bricks < 0: #bricks over, look at ladders
@@ -25,7 +25,7 @@ class Solution:
                 ladders-=1
 
                 # confusing - subtract negative => bricks increase
-                bricks = bricks -  maxdist  
+                bricks = bricks -  maxdist   #  bricks -= (-7) = bricks + 7
                 
 
         return len(heights) - 1 # went till end
