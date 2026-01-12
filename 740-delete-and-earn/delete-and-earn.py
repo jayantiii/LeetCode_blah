@@ -1,7 +1,6 @@
 class Solution:
     def deleteAndEarn(self, nums: List[int]) -> int:
-        #dp[i] - is the max points earned till 0...ith house
-
+        #Main key - dp over the unique values and have a count hashmap!!
         count = Counter(nums)
         values = sorted(count) #  # unique values
 
