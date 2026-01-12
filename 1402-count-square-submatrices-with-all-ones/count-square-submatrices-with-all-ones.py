@@ -21,7 +21,7 @@ class Solution:
                     left = dp[i][j-1]
                     diag = dp[i-1][j-1]
 
-                    dp[i][j] = 1+ min(top,left,diag)
+                    dp[i][j] = 1+ min(top,left,diag) #IMP!
 
         return  sum(sum(row) for row in dp)
 
