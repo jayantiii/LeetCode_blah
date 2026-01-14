@@ -2,7 +2,7 @@ class Solution:
     def mincostTickets(self, days: List[int], costs: List[int]) -> int:
         n = len(days)
         dp = [0] * n  # dp[d] = min cost to cover up to day d  
-        dp[0] = min(costs[0], costs[1], costs[2])
+        dp[0] = min(costs[0], costs[1], costs[2]) #THISS
 
         for i in range(1,n):
 
