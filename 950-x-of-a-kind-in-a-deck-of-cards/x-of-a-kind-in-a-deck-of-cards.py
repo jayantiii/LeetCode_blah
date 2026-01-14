@@ -3,7 +3,7 @@ class Solution:
         if len(deck) < 2:
             return False
 
-        g = 0  # gcd accumulator
+        g = 0  # gcd accumulator, math.gcd(0, n) returns abs(n).
         for v in Counter(deck).values():
             g = gcd(g, v)# keep only common divisor across counts
 
