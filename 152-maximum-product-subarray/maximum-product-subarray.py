@@ -23,3 +23,8 @@ class Solution:
 # cur_min(i) = minimum product of any subarray that ends exactly at index i
 
 # cur_min is the “worst (most negative) product of a subarray ending here”. It exists purely because a future negative can flip that “worst” into the best.
+
+#----------Another way----------------------------------
+# Two-pass running product: scan left→right multiplying a running `prod`, update `ans`, and reset `prod=1` at `0` since subarrays can’t cross zeros.
+
+# Scan right→left too, because in a zero-free segment with odd negatives the max product comes from dropping either the prefix up to the first negative or the suffix after the last negative—each pass captures one case.
