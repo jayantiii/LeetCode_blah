@@ -63,14 +63,6 @@ class LRUCache:
 
         return
 
-        
-
-        
-
-        
-
-
-        
 
 #How to get O(1): HashMap + Doubly Linked List#
 
