@@ -4,8 +4,8 @@ class Solution:
         currmin = nums[0]
         best = nums[0]
         for i in range(1, len(nums)):
-            if nums[i] < 0:
-                currmax, currmin = currmin, currmax  # <- flip detection/handling
+            if nums[i] < 0: # # <- flip detection/handling
+                currmax, currmin = currmin, currmax 
             
             currmax = max(nums[i], currmax*nums[i])
             currmin = min(nums[i],currmin*nums[i])
@@ -13,14 +13,7 @@ class Solution:
             best = max(best,currmax)
 
         return best
-
-        
-
-
-
-
-
-
+ 
 #I first thought subarray shouldnt have negative to be maximum
 #But, remember that 2 negatives make positive
 
