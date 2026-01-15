@@ -32,10 +32,6 @@ class Solution:
 
     # mincoins(amount)
 
-
-
-        
-
 # Bottom-up: iterative DP, O(A * N) time, O(A) space.
 # Top-down: recursive + memo, same complexity, sometimes easier to think directly from the recurrence. Time: O(amount * len(coins)) Space: O(amount) (memo) + O(amount) (stack) → still O(amount)
 
