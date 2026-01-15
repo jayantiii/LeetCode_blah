@@ -9,7 +9,7 @@ class Solution:
         """
         a = rand7()
         b = rand7()
-        x = (a - 1) * 7 + b
+        x = (a - 1) * 7 + b #2d grip map to numbers
         while x > 40:
             a = rand7()
             b = rand7()
@@ -23,14 +23,18 @@ class Solution:
 # You come up with it by following one mental rule:
 # If you want uniform output, start from a uniform “bucket of equally-likely states”, then map buckets evenly. If it doesn’t divide evenly, reject the leftovers.
 
-# Build a uniform integer 1..49 from two independent rand7() calls.
-# Think of (a, b) as a coordinate in a 7x7 grid:
-#   a in {1..7} chooses the row, b in {1..7} chooses the column.
-# Convert that 2D coordinate to a 1D index:
-#   (a-1) makes rows 0..6, multiply by 7 to shift by full rows,
-#   then add b (1..7) for the column position.
-# Result: x ranges 1..49, and each value occurs with probability 1/49.
+# Map 2D (row=a, col=b) in a 7x7 grid to a unique 1D index x in [1..49]:
+# - Each row has 7 cells.
+# - Rows before a contribute (a-1)*7 cells.
+# - Then add b (1..7) to land inside row a.
+# So:
+#   row 1 -> 1..7
+#   row 2 -> 8..14
+#   row 3 -> 15..21
+#   ...
+#   row 7 -> 43..49
 # x = (a - 1) * 7 + b
+
 
 # The main idea is when you generate a number in the desired range, output that number immediately. If the number is out of the desired range, reject it and re-sample again. As each number in the desired range has the same probability of being chosen, a uniform distribution is produced.
 
