@@ -31,5 +31,13 @@ class Solution:
 
 #         return res
 
+# #Dfs
+#         def dfs(node):
+#             if not node:
+#                 return []
+#             return dfs(node.left) + [node.val] + dfs(node.right)
+
+#         return dfs(root)
+
 
         
