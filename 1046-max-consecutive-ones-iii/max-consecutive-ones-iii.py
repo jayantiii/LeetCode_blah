@@ -9,9 +9,10 @@ class Solution:
                 ourk += 1
             
             # If we've used more than k flips, shrink the window from the left
+            #Make the window valid again
             while ourk > k:
                 if nums[l] == 0:
-                    ourk -= 1
+                    ourk -= 1       #intresting!!
                 l += 1
             
             # The window [l, r] is always valid here
