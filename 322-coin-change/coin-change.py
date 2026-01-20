@@ -10,7 +10,7 @@ class Solution:
         dp[0] = 0
         for i in range(1,amount+1):
             for c in coins:
-                remaining = amount - c
+                remaining = i - c
                 if remaining >=0:
                     dp[i] = min(dp[i],1+dp[i-c]) #its  i-c
         
