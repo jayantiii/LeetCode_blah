@@ -31,4 +31,22 @@ class Solution:
 # HashMap + Binary Search
 # HashMap for storing main string's character index
 # Binary Search for checking each individual word can be created using above hashmap or not
+
+
+# #--------Brute force--------------------------------------
+# Brute force = for each word, walk through s with two pointers.
+#         def is_subseq(w: str) -> bool:
+#             i = 0  # pointer in w
+#             for ch in s:              # scan s fully
+#                 if i < len(w) and w[i] == ch:
+#                     i += 1
+#                     if i == len(w):
+#                         return True
+#             return i == len(w)
+
+#         count = 0
+#         for w in words:
+#             if is_subseq(w):
+#                 count += 1
+#         return count
  
