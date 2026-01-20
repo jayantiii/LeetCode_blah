@@ -11,8 +11,8 @@ class Solution:
             previ = -1 #last macthed index in 
             for i in range(len(word)):
                 char = word[i]
-                idxs = hashmap.get(char,[])
-                j = bisect.bisect_right(idxs,previ) #first index index > prev
+                idxs = hashmap.get(char,[]) #get index array
+                j = bisect.bisect_right(idxs,previ) #first index where i > prev
 
                 if j ==len(idxs):return False #not found
                 previ = idxs[j]
