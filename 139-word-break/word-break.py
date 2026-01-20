@@ -2,9 +2,8 @@ class Solution:
     def wordBreak(self, s: str, wordDict: List[str]) -> bool:
         @lru_cache(None)
         def dfs(i): #i is the position in string
-            if i == len(s):
+            if i == len(s): #whole string found
                 return True
-
             for word in wordDict:
                 lenw = len(word)
                 if i + lenw <= len(s) and word == s[i: i+lenw]:
