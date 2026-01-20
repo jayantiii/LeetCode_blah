@@ -17,20 +17,7 @@ class Solution:
 
         return -1 if dp[amount] == float('inf') else dp[amount]
 
-    # #Top down
-    # dp = [float('inf')]*(amount+1)
 
-    # def mincoins(amount):
-    #     if amount == 0:
-    #         return 0
-    #     if amount == 1 and 1 in coins:
-    #         return 1
-
-    #     for c in coins:
-            
-        
-
-    # mincoins(amount)
 
 # Bottom-up: iterative DP, O(A * N) time, O(A) space.
 # Top-down: recursive + memo, same complexity, sometimes easier to think directly from the recurrence. Time: O(amount * len(coins)) Space: O(amount) (memo) + O(amount) (stack) → still O(amount)
@@ -38,6 +25,36 @@ class Solution:
 #Brute Force Idea: Try every possible combination of coins and find the one with minimum coins that sums to the target amount.
 #Greedy approach would be, pick the largest as much as you can , if not then go lower but fails in cases
 # like [1,3,4,5] amt = 5 -> it will return 5,1,1
+
+
+#---------Bottom up but reverse the loop order--------------------------
+
+# INF = 10**9
+# dp = [INF] * (amount + 1)
+# dp[0] = 0
+
+# for c in coins:
+#     for i in range(c, amount + 1):   # increasing => can reuse coin c
+#         dp[i] = min(dp[i], dp[i - c] + 1)
+
+# Min/max DP(this): loop order doesn’t matter because min/max just picks the best value for each dp[i]—no double-counting.
+
+# Counting DP(coin change 2): loop order matters because += accumulates paths; wrong order counts different orders separately (permutations vs combinations).
+#----------------------------------Recursive---------------------------
+    #  @lru_cache(None)
+    #     def mincoins(rem: int) -> int:
+    #         if rem == 0:
+    #             return 0
+    #         if rem < 0:
+    #             return INF
+
+    #         best = INF
+    #         for c in coins:
+    #             best = min(best, 1 + mincoins(rem - c))
+    #         return best
+
+    #     ans = mincoins(amount)
+    #     return -1 if ans >= INF else ans
 
 ##DP explaination
 # Recurrence:
