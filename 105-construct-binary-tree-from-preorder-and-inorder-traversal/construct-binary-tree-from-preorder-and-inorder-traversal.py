@@ -20,9 +20,8 @@ class Solution:
 
         return build(preorder,inorder)
 
-
-
-
 #use preorder to find the next root
 #use inorder to know what nodes go in left and right subtree from the root
+
+#rootindex (found from inorder) is the number of nodes in the left subtree.
         
