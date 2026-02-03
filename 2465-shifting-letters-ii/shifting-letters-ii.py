@@ -26,8 +26,8 @@ class Solution:
 #         - Instead of looping l..r (slow), we do:
 #               diff[l]   += delta
 #               diff[r+1] -= delta
-#           Then the prefix sum of diff gives the net shift at each index.
-#            Complete all queries using the method, then do prefixsum.
+#        Then the prefix sum of diff gives the net shift at each index.
+#        Complete all queries using the method, then do prefixsum.
 
 #         Why it works:
 #         - Adding at l starts the effect from l onward.
