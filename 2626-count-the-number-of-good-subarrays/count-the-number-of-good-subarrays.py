@@ -9,8 +9,7 @@ class Solution:
             if nums[i] not in hashmap:
                 hashmap[nums[i]] = 1
             
-            else: #its there
-                
+            else: #its there        
                 hashmap[nums[i]] +=1
                 pairs = hashmap[nums[i]] -1 
                 kval+=pairs #add pairs and not +1
@@ -21,8 +20,6 @@ class Solution:
                     goodsub += n - i #array before i
 
         return goodsub
-
-            
 
 # #good subarray
 # #- (i,j) i<j and arr[i] == a[j]
